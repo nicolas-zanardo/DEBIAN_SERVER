@@ -192,7 +192,7 @@ sudo vi /etc/nginx/sites-available/default
         server_name _;
         index index.html index.htm index.php;
         location / {
-            proxy_pass http://your_server_ip:8080;
+            proxy_pass http://localhost:8080;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
