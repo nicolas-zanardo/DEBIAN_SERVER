@@ -24,7 +24,7 @@ sudo apt -t buster-backports install php-twig
 ```
 ### Debug PHP https://xdebug.org/docs/install
 ```bash
-apt-get install php-xdebug
+sudo apt-get install php-xdebug
 
 sudo find / -name xdebug
  # Output
@@ -144,11 +144,10 @@ sudo apt install phpmyadmin
 
 ## PGadmin
 ```bash
-sudo apt install pgadmin4 pgadmin4-apache2 -y
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
-apt-get install pgadmin4  pgadmin4-apache2
+apt-get install -y pgadmin4  pgadmin4-apache2
 ```
 
 ## APACHE2 With NGINX
@@ -171,7 +170,7 @@ sudo service apache2 restart
 ## Nginx
 ```bash
 sudo apt install nginx
-sudo vi /etc/nginx/sites-available/default
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/001-default
 
     # Check version PHP
     php -v
