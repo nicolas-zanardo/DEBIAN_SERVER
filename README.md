@@ -16,11 +16,31 @@ sudo apt install zstd
 
 ## PHP
 ```bash
-sudo apt install php php-cli php-mysql php-fpm php-pear php-json php-json-schema php-dom php-dompdf php-simplexml php-ssh2 php-xml php-xmlreader php-curl php-exif php-ftp php-gd php-iconv php-imagick php-json php-mbstring php-posix php-sockets php-tokenizer composer php-symfony-console php-symfony-filesystem php-symfony-finder php-symfony-process php-mbstring php-zip php-gd php-bz2 php-tcpdf
+sudo apt install php php-cli php-mysql php-fpm php-pear php-json php-json-schema php-dom php-dompdf php-simplexml php-ssh2 php-xml php-xmlreader php-curl php-exif php-ftp php-gd php-iconv php-imagick php-json php-mbstring php-posix php-sockets php-tokenizer composer php-symfony-console php-symfony-filesystem php-symfony-finder php-symfony-process php-mbstring php-zip php-gd php-bz2 php-tcpdf php-dev
 ```
 ### Debian only installs version 2.6, and for phpMyAdmin you need a version >=2.9 (https://wiki.debian.org/Backports)
 ```bash
 sudo apt -t buster-backports install php-twig
+```
+### Debug PHP https://xdebug.org/docs/install
+```bash
+apt-get install php-xdebug
+
+sudo find / -name xdebug
+ # Output
+    /var/lib/php/modules/7.3/cli/enabled_by_maint/xdebug
+    /var/lib/php/modules/7.3/fpm/enabled_by_maint/xdebug
+    /var/lib/php/modules/7.3/apache2/enabled_by_maint/xdebug
+    /var/lib/php/modules/7.3/registry/xdebug 
+
+# Configuration php-fpm Nginx
+sudo vi /etc/php/7.3/fpm/php.ini
+
+## add Lines https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug
+[XDebug]
+zend_extension=/var/lib/php/modules/7.3/registry/xdebug 
+xdebug.remote_enable = 1
+xdebug.remote_autostart = 1
 ```
 
 ## Mysql
