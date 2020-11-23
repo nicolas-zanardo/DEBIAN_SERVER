@@ -16,7 +16,7 @@ sudo apt install zstd
 
 ## PHP
 ```bash
-sudo apt install php php-cli php-mysql php-fpm php-pear php-json php-json-schema php-dom php-dompdf php-simplexml php-ssh2 php-xml php-xmlreader php-curl php-exif php-ftp php-gd php-iconv php-imagick php-json php-mbstring php-posix php-sockets php-tokenizer composer php-symfony-console php-symfony-filesystem php-symfony-finder php-symfony-process php-mbstring php-zip php-gd php-bz2 php-tcpdf php-dev
+sudo apt install php php-cli php-mysql php-fpm php-pear php-json php-json-schema php-dom php-dompdf php-simplexml php-ssh2 php-xml php-xmlreader php-curl php-exif php-ftp php-gd php-iconv php-imagick php-json php-mbstring php-posix php-sockets php-tokenizer composer php-symfony-console php-symfony-filesystem php-symfony-finder php-symfony-process php-mbstring php-zip php-gd php-bz2 php-tcpdf php-dev php7.3-intl
 ```
 ### Debian only installs version 2.6, and for phpMyAdmin you need a version >=2.9 (https://wiki.debian.org/Backports)
 ```bash
