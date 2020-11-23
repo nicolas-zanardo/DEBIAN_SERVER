@@ -62,7 +62,7 @@ sudo mysql -u root -p
     # CREATE USER
     MariaDB [mysql]> CREATE USER 'niko'@'localhost' IDENTIFIED BY 'MyPassword';
     # GRANT ALL PRIVILEGES
-    MariaDB [mysql]> GRANT ALL PRIVILEGES on *.* TO 'niko'@'localhost',
+    MariaDB [mysql]> GRANT ALL PRIVILEGES on *.* TO 'niko'@'localhost';
     MariaDB [mysql]> select user,host from mysql.user;
     # OUTPOUT
     +------+-----------+
