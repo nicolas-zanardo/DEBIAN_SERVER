@@ -14,10 +14,29 @@ sudo apt -y install vim curl gnupg2 ca-certificates lsb-release apt-transport-ht
 sudo apt install zstd 
 ```
 
-## PHP
+## PHP 7.3
 ```bash
 sudo apt install php php-cli php-mysql php-fpm php-pear php-json php-json-schema php-dom php-dompdf php-simplexml php-ssh2 php-xml php-xmlreader php-curl php-exif php-ftp php-gd php-iconv php-imagick php-json php-mbstring php-posix php-sockets php-tokenizer composer php-symfony-console php-symfony-filesystem php-symfony-finder php-symfony-process php-mbstring php-zip php-gd php-bz2 php-tcpdf php-dev php7.3-intl
 ```
+# PHP 7.4
+```bash
+sudo apt -y install lsb-release apt-transport-https ca-certificates
+
+# sury.org
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+
+sudo apt update
+sudo apt -y install php7.4
+php -v
+
+#output
+PHP 7.4.2 (cli) (built: Jan 23 2020 14:16:47) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Zend OPcache v7.4.2, Copyright (c), by Zend Technologies
+```
+
 ### Debian only installs version 2.6, and for phpMyAdmin you need a version >=2.9 (https://wiki.debian.org/Backports)
 ```bash
 sudo apt -t buster-backports install php-twig
@@ -91,6 +110,28 @@ sudo service apache2 start
     # write the lige
     <?php phpinfo() ?>
     # Go to http://localhost/info.php to see php features
+
+#####################
+#      PHP 7.4      #
+#####################
+sudo apt install libapache2-mod-php7.4
+sudo apt-get install php7.4-{common,bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm,json,pdo,mbstring,curl,xml,imagick,tidy,xmlrpc,dev,imap,opcache,soap} -y
+sudo a2dismod php7.3
+sudo a2enmod php7.4
+service apache2 restart
+
+########################
+# IF PHP 7.4 installed #
+########################
+sudo apt purge php7.3 libapache2-mod-php7.3
+
+apt-cache policy php7.4
+#output
+php7.4:
+  
+  Version table:
+     7.4.2-1+0~20200123.9+debian9~1.gbp74d994 500
+        500 https://packages.sury.org/php stretch/main amd64 Packages
 ```
 
 ## PosgreSQL
