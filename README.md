@@ -16,7 +16,7 @@ sudo apt install zstd
 
 ## PHP 7.3
 ```bash
-sudo apt install php php-cli php-mysql php-fpm php-pear php-json php-json-schema php-dom php-dompdf php-simplexml php-ssh2 php-xml php-xmlreader php-curl php-exif php-ftp php-gd php-iconv php-imagick php-json php-mbstring php-posix php-sockets php-tokenizer composer php-symfony-console php-symfony-filesystem php-symfony-finder php-symfony-process php-mbstring php-zip php-gd php-bz2 php-tcpdf php-dev php7.3-intl
+sudo apt install php php-cli php-mysql php-fpm php-pear php-json php-json-schema php-dompdf php-ssh2 php-xml php-curl php-gd php-imagick php-json php-mbstring php-tokenizer php-mbstring php-zip php-gd php-bz2 php-dev php7.3-intl
 ```
 ## PHP 7.4
 ```bash
