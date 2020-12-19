@@ -104,6 +104,7 @@ sudo mysql -u root -p
 ## Apache2
 ```bash
 sudo apt install apache2 libapache2-mod-php7.3 libgmp3-dev libpq-dev libapache2-mod-wsgi-py3
+sudo a2enmod alias proxy proxy_fcgi
 sudo service apache2 start
     # Check version PHP
     sudo vi /var/www/html/info.php
