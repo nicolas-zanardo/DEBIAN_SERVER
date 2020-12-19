@@ -202,6 +202,10 @@ sudo vi /etc/apache2/sites-available/001-default.conf
     <VirtualHost *:8080>
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
+        <FilesMatch \.php$>
+        # 2.4.10+ can proxy to unix socket
+        SetHandler "proxy:unix:/run/php/php7.3-fpm.sock|fcgi://localhost"
+        </FilesMatch>
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
     </VirtualHost>
