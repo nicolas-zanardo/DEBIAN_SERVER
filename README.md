@@ -45,6 +45,13 @@ Zend Engine v3.4.0, Copyright (c) Zend Technologies
 ```bash
 sudo apt -t buster-backports install php-twig
 ```
+
+### Python
+
+```Bash
+sudo apt-get install -y python3 python3-pip python-dev libpcre3 libpcre3-dev build-essential libssl-dev libffi-dev python3-venv
+```
+
 ### Debug PHP https://xdebug.org/docs/install
 ```bash
 sudo apt-get install php-xdebug
@@ -160,7 +167,7 @@ psql
      niko      |                                                            | {}
      postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
      # Make user 'niko'  as superUser
-     postgres=# ALTER ROLE rolename WITH SUPERUSER;
+     postgres=# ALTER ROLE niko WITH SUPERUSER;
     postgres=# \du
                                        List of roles
      Role name |                         Attributes                         | Member of
