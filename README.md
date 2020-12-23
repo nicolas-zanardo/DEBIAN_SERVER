@@ -1,4 +1,4 @@
-# How to Configure Nginx and Apache Together on Debian 10 Buster
+# How to Configure Nginx and Apache Together on Debian 10 Buster WSL2
 
 
 ## Update
@@ -7,18 +7,22 @@ sudo apt update && sudo apt -y dist-upgrade
 ```
 ## Debian package
 ```bash
-sudo apt -y install vim curl gnupg2 ca-certificates lsb-release apt-transport-https wget git expect
+sudo apt install -y vim curl gnupg2 ca-certificates lsb-release apt-transport-https gnupg-agent software-properties-common wget git expect
 ```
 ## File compression
 ```bash
 sudo apt install zstd 
 ```
 
-## PHP 7.3
+## PHP Stable
 ```bash
-sudo apt install php php-cli php-mysql php-fpm php-pear php-json php-json-schema php-dompdf php-ssh2 php-xml php-curl php-gd php-imagick php-json php-mbstring php-tokenizer php-mbstring php-zip php-gd php-bz2 php-dev php7.3-intl
+sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip
 ```
-## PHP 7.4
+
+## PHP 7.4 (sury.org)
+
+/!\ bug with composer on php-8
+
 ```bash
 sudo apt -y install lsb-release apt-transport-https ca-certificates
 
@@ -57,7 +61,6 @@ sudo vi /etc/php/7.3/fpm/php.ini
 
 ## add Lines https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug
 [XDebug]
-zend_extension=/var/lib/php/modules/7.3/registry/xdebug 
 xdebug.remote_enable = 1
 xdebug.remote_autostart = 1
 ```
@@ -120,19 +123,6 @@ sudo apt-get install php7.4-{common,bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fp
 sudo a2dismod php7.3
 sudo a2enmod php7.4
 service apache2 restart
-
-########################
-# IF PHP 7.4 installed #
-########################
-sudo apt purge php7.3 libapache2-mod-php7.3
-
-apt-cache policy php7.4
-#output
-php7.4:
-  
-  Version table:
-     7.4.2-1+0~20200123.9+debian9~1.gbp74d994 500
-        500 https://packages.sury.org/php stretch/main amd64 Packages
 ```
 
 ## PosgreSQL
