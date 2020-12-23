@@ -229,7 +229,7 @@ sudo service apache2 restart
 
 ## Nginx
 ```bash
-sudo apt install nginx
+sudo apt install nginx-full
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/001-default
 
     # Check version PHP
