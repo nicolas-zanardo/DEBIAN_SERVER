@@ -19,7 +19,7 @@ sudo apt install zstd
 sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip
 ```
 
-## PHP 7.4 (sury.org) - OPTION
+## PHP 7.4 (sury.org) - OPTION https://packages.sury.org/php/pool/main/p/php7.4/
 
 /!\ bug with composer on php-8
 
