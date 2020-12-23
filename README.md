@@ -19,7 +19,7 @@ sudo apt install zstd
 sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip
 ```
 
-## PHP 7.4 (sury.org)
+## PHP 7.4 (sury.org) - OPTION
 
 /!\ bug with composer on php-8
 
@@ -31,7 +31,7 @@ sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gp
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
 
 sudo apt update
-sudo apt -y install php7.4
+sudo apt-get install php7.4-{common,bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm,json,pdo,mbstring,curl,xml,imagick,tidy,xmlrpc,dev,imap,opcache,soap} -y
 php -v
 
 #output
@@ -50,6 +50,24 @@ sudo apt -t buster-backports install php-twig
 
 ```Bash
 sudo apt-get install -y python3 python3-pip python-dev libpcre3 libpcre3-dev build-essential libssl-dev libffi-dev python3-venv
+```
+
+### .bashr
+
+```bash
+
+# Python 3.7
+echo '' >> $HOME/.bashrc
+echo '# Set Python default' >> $HOME/.bashrc
+echo 'alias python="/usr/bin/python3.7"' >> $HOME/.bashrc
+echo '' >> $HOME/.bashrc
+
+# $USER GIT option "print branch" 
+echo "# Print Git Branch in terminal
+parse_git_branch() {
+	     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}" >> $HOME/.bashrc
+echo 'export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "' >> $HOME/.bashrc
 ```
 
 ### Debug PHP https://xdebug.org/docs/install
@@ -123,10 +141,9 @@ sudo service apache2 start
     # Go to http://localhost/info.php to see php features
 
 #####################
-#      PHP 7.4      #
+#      PHP 7.4      # - OPTION
 #####################
 sudo apt install libapache2-mod-php7.4
-sudo apt-get install php7.4-{common,bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm,json,pdo,mbstring,curl,xml,imagick,tidy,xmlrpc,dev,imap,opcache,soap} -y
 sudo a2dismod php7.3
 sudo a2enmod php7.4
 service apache2 restart
