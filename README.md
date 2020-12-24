@@ -266,3 +266,9 @@ sudo vi /etc/nginx/sites-available/default
 
 ## nodeJS
 https://github.com/nodesource/distributions/blob/master/README.md
+
+
+## ssh-add
+
+eval `ssh-agent -s`
+ssh-dd
