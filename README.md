@@ -269,6 +269,10 @@ https://github.com/nodesource/distributions/blob/master/README.md
 
 
 ## ssh-add
-
+```bash
 eval `ssh-agent -s`
 ssh-dd
+
+sudo vi /etc/ssh/ssh_config
+AddkeysToAgent yes
+```
