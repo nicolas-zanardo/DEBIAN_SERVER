@@ -85,7 +85,7 @@ xdebug.remote_autostart = 1
 
 ## Mysql
 ```bash
-sudo apt install mariadb-common mariadb-server mariadb-client mariadb-backup
+sudo apt install -y mariadb-common mariadb-server mariadb-client mariadb-backup
 sudo service mysql start
 sudo mysql_secure_installation  # /!\ WARNING -Do NOT change the root password  --> for the rest (Y)
 sudo mysql -u root -p
