@@ -33,6 +33,7 @@ sudo mv composer.phar /usr/local/bin/composer
 ```bash
 # https://symfony.com/download
 wget https://get.symfony.com/cli/installer -O - | bash
+sudo mv /home/niko/.symfony/bin/symfony /usr/local/bin/symfony
 ```
 
 ### Debian only installs version 2.6, and for phpMyAdmin you need a version >=2.9 (https://wiki.debian.org/Backports)
