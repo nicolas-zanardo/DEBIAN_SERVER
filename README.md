@@ -16,29 +16,23 @@ sudo apt install zstd
 
 ## PHP Stable
 ```bash
-sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip
+sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip php-mysqli php-pear php-gettext php-phpseclib
+```
+## Composer
+```bash
+#https://getcomposer.org/download/
+
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+sudo mv composer.phar /usr/local/bin/composer
 ```
 
-## PHP 7.4 (sury.org) - OPTION https://packages.sury.org/php/pool/main/p/php7.4/
-
-/!\ bug with composer on php-8
-
+### symfony
 ```bash
-sudo apt -y install lsb-release apt-transport-https ca-certificates
-
-# sury.org
-sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
-
-sudo apt update
-sudo apt-get install php7.4-{common,bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm,json,pdo,mbstring,curl,xml,imagick,tidy,xmlrpc,dev,imap,opcache,soap} -y
-php -v
-
-#output
-PHP 7.4.2 (cli) (built: Jan 23 2020 14:16:47) ( NTS )
-Copyright (c) The PHP Group
-Zend Engine v3.4.0, Copyright (c) Zend Technologies
-    with Zend OPcache v7.4.2, Copyright (c), by Zend Technologies
+# https://symfony.com/download
+wget https://get.symfony.com/cli/installer -O - | bash
 ```
 
 ### Debian only installs version 2.6, and for phpMyAdmin you need a version >=2.9 (https://wiki.debian.org/Backports)
@@ -47,13 +41,11 @@ sudo apt -t buster-backports install php-twig
 ```
 
 ### Python
-
 ```Bash
 sudo apt-get install -y python3 python3-pip python-dev libpcre3 libpcre3-dev build-essential libssl-dev libffi-dev python3-venv
 ```
 
 ### .bashr
-
 ```bash
 
 # Python 3.7
@@ -129,6 +121,7 @@ sudo mysql -u root -p
     +------+
     1 row in set (0.000 sec)
 ```
+
 ## Apache2
 ```bash
 sudo apt install apache2 libapache2-mod-php7.3 libgmp3-dev libpq-dev libapache2-mod-wsgi-py3
@@ -139,14 +132,6 @@ sudo service apache2 start
     # write the lige
     <?php phpinfo() ?>
     # Go to http://localhost/info.php to see php features
-
-#####################
-#      PHP 7.4      # - OPTION
-#####################
-sudo apt install libapache2-mod-php7.4
-sudo a2dismod php7.3
-sudo a2enmod php7.4
-service apache2 restart
 ```
 
 ## PosgreSQL
@@ -195,7 +180,18 @@ psql
 
 ## PhpMyAdmin
 ```bash
-sudo apt install phpmyadmin
+############################
+# phpMyAdmin with Nginx
+# Config must be empty like this:
+# [] apache2
+# [] lighttpd
+# dbconfig-common <Yes>
+# password : Mypassword =>
+#  The MySQL application password is only used internally by phpMyAdmin 
+#  to communicate with MySQL. You can leave this blank and a password will 
+#  be generated automatically. Just press ENTER to continue.
+sudo apt update && sudo apt install phpmyadmin
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 ```
 
 ## PGadmin
