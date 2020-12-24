@@ -203,6 +203,11 @@ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install -y pgadmin4  pgadmin4-apache2
+
+cd /etc/postgresql/11/main/
+# uncomment
+listen_addresses = 'localhost'
+sudo /etc/init.d/postgresql restart
 ```
 
 ## APACHE2 With NGINX
