@@ -7,7 +7,7 @@ sudo apt update && sudo apt -y dist-upgrade
 ```
 ## Debian package
 ```bash
-sudo apt install -y vim curl gnupg2 ca-certificates lsb-release apt-transport-https gnupg-agent software-properties-common wget git expect
+sudo apt install -y vim curl gnupg2 ca-certificates lsb-release apt-transport-https gnupg-agent software-properties-common wget git expect libnss3-tools
 ```
 ## File compression
 ```bash
