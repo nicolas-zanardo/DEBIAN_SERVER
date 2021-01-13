@@ -16,12 +16,32 @@ sudo apt install -y vim curl gnupg2 ca-certificates lsb-release apt-transport-ht
 sudo apt install zstd zip unzip
 ```
 
-## PHP Stable
+## PHP
+
+### 7.3 Stable
 ```bash
 sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip php-mysqli php-pear php-gettext php-phpseclib php-zip
 
 sudo service php7.3-fpm start
 ```
+### Sury
+
+```bash
+#!/bin/bash
+# To add this repository please do:
+
+if [ "$(whoami)" != "root" ]; then
+    SUDO=sudo
+fi
+
+${SUDO} apt-get -y install apt-transport-https lsb-release ca-certificates curl
+${SUDO} curl -sSL -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+${SUDO} sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+${SUDO} apt-get update
+```
+
+
+
 ## Composer
 ```bash
 #https://getcomposer.org/download/
