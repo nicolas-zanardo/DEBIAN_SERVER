@@ -20,7 +20,7 @@ sudo apt install zstd zip unzip
 
 ### 7.3 Stable
 ```bash
-sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip php-mysqli php-pear php-gettext php-phpseclib php-zip
+sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip php-mysqli php-pear php-gettext php-phpseclib php-imagick
 
 sudo service php7.3-fpm start
 ```
@@ -39,8 +39,12 @@ ${SUDO} curl -sSL -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/ph
 ${SUDO} sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 ${SUDO} apt-get update
 ```
+```
+sudo apt install php8.0-{fpm,dev,bcmath,bz2,cgi,cli,common,curl,enchant,gd,gmp,imap,interbase,intl,ldap,mbstring,mysql,odbc,pgsql,phpdbg,pspell,readline,snmp,soap,sqlite3,sybase,tidy,xml,zip,mysqli,gettext,imagick}
+sudo apt install libphp8.0-embed
 
-
+sudo service php8.0-fpm start
+```
 
 ## Composer
 ```bash
