@@ -128,17 +128,17 @@ sudo mysql -u root -p
     +------+-----------+
 
     # CREATE USER
-    MariaDB [mysql]> CREATE USER 'niko'@'localhost' IDENTIFIED BY 'MyPassword';
+    MariaDB [mysql]> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
     # GRANT ALL PRIVILEGES
-    MariaDB [mysql]> GRANT ALL PRIVILEGES on *.* TO 'niko'@'localhost';
+    MariaDB [mysql]> GRANT ALL PRIVILEGES on *.* TO 'admin'@'localhost';
     MariaDB [mysql]> select user,host from mysql.user;
     # OUTPOUT
-    +------+-----------+
-    | user | host      |
-    +------+-----------+
-    | niko | localhost |
-    | root | localhost |
-    +------+-----------+
+    +-------+-----------+
+    | user  | host      |
+    +-------+-----------+
+    | admin | localhost |
+    | root  | localhost |
+    +-------+-----------+
     2 rows in set (0.000 sec)
 
     # Display users without a password.
@@ -182,7 +182,7 @@ sudo service postgresql start
 sudo -u postgres -i
 psql
     #in Postgres 
-    postgres=# CREATE USER niko WITH PASSWORD 'Mypassword';
+    postgres=# CREATE USER admin WITH PASSWORD 'admin';
     # SHOW DATABASEs
     postgres=# \l
                                      List of databases
@@ -207,15 +207,15 @@ psql
                                        List of roles
      Role name |                         Attributes                         | Member of
     -----------+------------------------------------------------------------+-----------
-     niko      |                                                            | {}
+     admin     |                                                            | {}
      postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
-     # Make user 'niko'  as superUser
-     postgres=# ALTER ROLE niko WITH SUPERUSER;
+     # Make user 'admin'  as superUser
+     postgres=# ALTER ROLE admin WITH SUPERUSER;
     postgres=# \du
                                        List of roles
      Role name |                         Attributes                         | Member of
     -----------+------------------------------------------------------------+-----------
-     niko      | Superuser                                                  | {}
+     admin     | Superuser                                                  | {}
      postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
 ```
 
