@@ -40,8 +40,8 @@ ${SUDO} sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main"
 ${SUDO} apt-get update
 ```
 ```
-sudo apt install php8.0-{fpm,dev,bcmath,bz2,cgi,cli,common,curl,enchant,gd,gmp,imap,interbase,intl,ldap,mbstring,mysql,odbc,pgsql,phpdbg,pspell,readline,snmp,soap,sqlite3,sybase,tidy,xml,zip,mysqli,gettext,imagick}
-sudo apt install libphp8.0-embed
+sudo apt install -y php8.0-{fpm,dev,bcmath,bz2,cgi,cli,common,curl,enchant,gd,gmp,imap,interbase,intl,ldap,mbstring,mysql,odbc,pgsql,phpdbg,pspell,readline,snmp,soap,sqlite3,sybase,tidy,xml,zip,mysqli,gettext,imagick}
+sudo apt install -y libphp8.0-embed
 
 sudo service php8.0-fpm start
 ```
