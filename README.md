@@ -178,7 +178,7 @@ sudo apt-get update
 
 # Install the latest version of PostgreSQL.
 # If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
-sudo apt-get -y install postgresql-11 postgresql-doc postgresql-contrib
+sudo apt-get -y install postgresql postgresql-doc postgresql-contrib
 
 sudo service postgresql start
 sudo -u postgres -i
@@ -293,6 +293,8 @@ sudo vi /etc/nginx/sites-available/default
 
 ## PhpMyAdmin
 
+### Stable 4.9
+
 ```bash
 ############################
 # phpMyAdmin with Nginx
@@ -306,6 +308,29 @@ sudo vi /etc/nginx/sites-available/default
 #  be generated automatically. Just press ENTER to continue.
 sudo apt update && sudo apt install phpmyadmin
 sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+```
+### PhpMyAdmin Download
+
+```bash
+# https://www.phpmyadmin.net/downloads/
+cd ~/Downloads
+wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz
+wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz.asc
+wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz.sha256
+
+# key
+wget https://files.phpmyadmin.net/phpmyadmin.keyring
+gpg --import phpmyadmin.keyring
+
+# Check Verification
+gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+># //OUTPUT
+> gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
+> gpg: Good signature from "Isaac Bennetch <bennetch@gmail.com>"
+> gpg:                 aka "Isaac Bennetch <isaac@bennetch.org>"
+> gpg: WARNING: This key is not certified with a trusted signature!
+> gpg:          There is no indication that the signature belongs to the owner.
+> Primary key fingerprint: 3D06 A59E CE73 0EB7 1B51  1C17 CE75 2F17 8259 BD92
 ```
 
 ## PGadmin
