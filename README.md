@@ -1,5 +1,7 @@
 # How to Configure Nginx and Apache Together on Debian 10 Buster WSL2
 
+## Restart WSL2 (powershell)
+Get-Service LxssManager | Restart-Service
 
 ## Update
 ```bash
