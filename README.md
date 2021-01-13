@@ -323,7 +323,7 @@ wget https://files.phpmyadmin.net/phpmyadmin.keyring
 gpg --import phpmyadmin.keyring
 
 # Check Verification
-gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
+gpg --verify phpMyAdmin-xxxxxx-all-languages.zip.asc
 ># //OUTPUT
 > gpg: Signature made Fri 29 Jan 2016 08:59:37 AM EST using RSA key ID 8259BD92
 > gpg: Good signature from "Isaac Bennetch <bennetch@gmail.com>"
@@ -331,6 +331,14 @@ gpg --verify phpMyAdmin-4.5.4.1-all-languages.zip.asc
 > gpg: WARNING: This key is not certified with a trusted signature!
 > gpg:          There is no indication that the signature belongs to the owner.
 > Primary key fingerprint: 3D06 A59E CE73 0EB7 1B51  1C17 CE75 2F17 8259 BD92
+
+sudo mkdir /usr/share/phpmyadmin
+sudo tar xzf phpMyAdmin-xxxxxx-english.tar.gz --strip-components=1 -C /usr/share/phpmyadmin
+
+sudo cp /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config.inc.php
+$cfg['blowfish_secret'] = 'yourbolfish-whit-32chars'
+
+chown -R www-data:www-data /usr/share/phpmyadmin
 ```
 
 ## PGadmin
