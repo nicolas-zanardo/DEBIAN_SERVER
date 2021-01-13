@@ -53,24 +53,24 @@ php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
-### symfony
+## symfony
 ```bash
 # https://symfony.com/download
 wget https://get.symfony.com/cli/installer -O - | bash
 sudo mv /home/niko/.symfony/bin/symfony /usr/local/bin/symfony
 ```
 
-### Debian only installs version 2.6, and for phpMyAdmin you need a version >=2.9 (https://wiki.debian.org/Backports)
+## Debian only installs version 2.6, and for phpMyAdmin you need a version >=2.9 (https://wiki.debian.org/Backports)
 ```bash
 sudo apt -t buster-backports install php-twig
 ```
 
-### Python
+## Python
 ```Bash
 sudo apt-get install -y python3 python3-pip python-dev libpcre3 libpcre3-dev build-essential libssl-dev libffi-dev python3-venv
 ```
 
-### .bashr
+## .bashr
 ```bash
 
 # Python 3.7
@@ -87,7 +87,7 @@ parse_git_branch() {
 echo 'export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "' >> $HOME/.bashrc
 ```
 
-### Debug PHP https://xdebug.org/docs/install
+## Debug PHP https://xdebug.org/docs/install
 ```bash
 sudo apt-get install php-xdebug
 
