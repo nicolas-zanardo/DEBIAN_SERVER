@@ -313,6 +313,8 @@ sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 
 ```bash
 # https://www.phpmyadmin.net/downloads/
+# https://docs.phpmyadmin.net/en/latest/setup.html#verifying-phpmyadmin-releases
+
 cd ~/Downloads
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz.asc
