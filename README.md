@@ -338,7 +338,9 @@ sudo tar xzf phpMyAdmin-xxxxxx-english.tar.gz --strip-components=1 -C /usr/share
 sudo cp /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config.inc.php
 $cfg['blowfish_secret'] = 'yourbolfish-whit-32chars'
 
-chown -R www-data:www-data /usr/share/phpmyadmin
+sudo chown -R www-data:www-data /usr/share/phpmyadmin
+
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 ```
 
 ## PGadmin
