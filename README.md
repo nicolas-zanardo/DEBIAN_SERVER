@@ -1,17 +1,21 @@
 # How to Configure Nginx and Apache Together on Debian 10 Buster WSL2
 
 ## Restart WSL2 (powershell)
+
 Get-Service LxssManager | Restart-Service
 
 ## Update
+
 ```bash
 sudo apt update && sudo apt -y dist-upgrade
 ```
 ## Debian package
+
 ```bash
 sudo apt install -y vim curl gnupg2 ca-certificates lsb-release apt-transport-https gnupg-agent software-properties-common wget git expect libnss3-tools
 ```
 ## File compression
+
 ```bash
 sudo apt install zstd zip unzip
 ```
@@ -19,11 +23,13 @@ sudo apt install zstd zip unzip
 ## PHP
 
 ### 7.3 Stable
+
 ```bash
 sudo apt install -y libapache2-mod-php libphp-embed php php-all-dev php-bcmath php-bz2 php-cgi php-cli php-common php-curl php-dev php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-json php-ldap php-mbstring php-mysql php-odbc php-pgsql php-phpdbg php-pspell php-readline php-recode php-snmp php-soap php-sqlite3 php-sybase php-tidy php-xml php-xmlrpc php-zip php-mysqli php-pear php-gettext php-phpseclib php-imagick
 
 sudo service php7.3-fpm start
 ```
+
 ### Sury
 
 ```bash
@@ -47,6 +53,7 @@ sudo service php8.0-fpm start
 ```
 
 ## Composer
+
 ```bash
 #https://getcomposer.org/download/
 
@@ -58,6 +65,7 @@ sudo mv composer.phar /usr/local/bin/composer
 ```
 
 ## symfony
+
 ```bash
 # https://symfony.com/download
 wget https://get.symfony.com/cli/installer -O - | bash
@@ -65,16 +73,19 @@ sudo mv /home/niko/.symfony/bin/symfony /usr/local/bin/symfony
 ```
 
 ## Debian only installs version 2.6, and for phpMyAdmin you need a version >=2.9 (https://wiki.debian.org/Backports)
+
 ```bash
 sudo apt -t buster-backports install php-twig
 ```
 
 ## Python
+
 ```Bash
 sudo apt-get install -y python3 python3-pip python-dev libpcre3 libpcre3-dev build-essential libssl-dev libffi-dev python3-venv
 ```
 
 ## .bashr
+
 ```bash
 
 # Python 3.7
@@ -92,6 +103,7 @@ echo 'export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[0
 ```
 
 ## Debug PHP https://xdebug.org/docs/install
+
 ```bash
 sudo apt-get install php-xdebug
 
@@ -112,6 +124,7 @@ xdebug.remote_autostart = 1
 ```
 
 ## Mysql
+
 ```bash
 sudo apt install -y mariadb-common mariadb-server mariadb-client mariadb-backup
 sudo service mysql start
@@ -151,19 +164,8 @@ sudo mysql -u root -p
     1 row in set (0.000 sec)
 ```
 
-## Apache2
-```bash
-sudo apt install apache2 libapache2-mod-php7.3 libgmp3-dev libpq-dev libapache2-mod-wsgi-py3
-sudo a2enmod alias proxy proxy_fcgi
-sudo service apache2 start
-    # Check version PHP
-    sudo vi /var/www/html/info.php
-    # write the lige
-    <?php phpinfo() ?>
-    # Go to http://localhost/info.php to see php features
-```
-
 ## PosgreSQL
+
 ```bash
 # Create the file repository configuration:
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
@@ -219,36 +221,21 @@ psql
      postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
 ```
 
-## PhpMyAdmin
-```bash
-############################
-# phpMyAdmin with Nginx
-# Config must be empty like this:
-# [] apache2
-# [] lighttpd
-# dbconfig-common <Yes>
-# password : Mypassword =>
-#  The MySQL application password is only used internally by phpMyAdmin 
-#  to communicate with MySQL. You can leave this blank and a password will 
-#  be generated automatically. Just press ENTER to continue.
-sudo apt update && sudo apt install phpmyadmin
-sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
-```
+## Apache2
 
-## PGadmin
 ```bash
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install -y pgadmin4  pgadmin4-apache2
-
-cd /etc/postgresql/11/main/
-# uncomment
-listen_addresses = 'localhost'
-sudo /etc/init.d/postgresql restart
+sudo apt install apache2 libapache2-mod-php7.3 libgmp3-dev libpq-dev libapache2-mod-wsgi-py3
+sudo a2enmod alias proxy proxy_fcgi
+sudo service apache2 start
+    # Check version PHP
+    sudo vi /var/www/html/info.php
+    # write the lige
+    <?php phpinfo() ?>
+    # Go to http://localhost/info.php to see php features
 ```
 
 ## APACHE2 With NGINX
+
 ```bash
 sudo mv /etc/apache2/ports.conf /etc/apache2/ports.conf.default
 echo "Listen 8080" | sudo tee /etc/apache2/ports.conf
@@ -270,6 +257,7 @@ sudo service apache2 restart
 ```
 
 ## Nginx
+
 ```bash
 sudo apt install nginx-full
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/001-default
@@ -301,6 +289,39 @@ sudo vi /etc/nginx/sites-available/default
             proxy_set_header X-Forwarded-Proto $scheme;
         }
 }
+```
+
+## PhpMyAdmin
+
+```bash
+############################
+# phpMyAdmin with Nginx
+# Config must be empty like this:
+# [] apache2
+# [] lighttpd
+# dbconfig-common <Yes>
+# password : Mypassword =>
+#  The MySQL application password is only used internally by phpMyAdmin 
+#  to communicate with MySQL. You can leave this blank and a password will 
+#  be generated automatically. Just press ENTER to continue.
+sudo apt update && sudo apt install phpmyadmin
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+```
+
+## PGadmin
+
+```bash
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install -y pgadmin4  pgadmin4-apache2
+
+cd /etc/postgresql/11/main/
+# uncomment
+listen_addresses = 'localhost'
+sudo /etc/init.d/postgresql restart
+```
+
 
 ## nodeJS
 https://github.com/nodesource/distributions/blob/master/README.md
