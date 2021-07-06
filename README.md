@@ -7,7 +7,11 @@ Get-Service LxssManager | Restart-Service
 ## Update
 
 ```bash
-sudo apt update && sudo apt -y dist-upgrade
+sudo apt update && sudo apt -y dist-upgrade  
+
+or 
+
+sudo apt update && apt full-upgrade && apt autoremove
 ```
 ## Debian package
 
